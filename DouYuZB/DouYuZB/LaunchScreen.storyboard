@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1912" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Llm-lL-Icb"/>
+                        <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image_launch_logo" translatesAutoresizingMaskIntoConstraints="NO" id="fEn-XI-da4">
+                                <rect key="frame" x="235" y="485" width="130" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="130" id="BGv-ZW-sCl"/>
+                                    <constraint firstAttribute="height" constant="60" id="tF7-vr-qNA"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="copyright 斗鱼版权所有" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UzR-SC-iGS">
+                                <rect key="frame" x="20" y="555" width="560" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="qg7-lC-5us"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <color key="textColor" red="0.50694444444444442" green="0.50694444444444442" blue="0.50694444444444442" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="每个人的直播平台" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Zc-dn-XoM">
+                                <rect key="frame" x="20" y="120" width="560" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="aRb-4Z-XbW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="0.4579979482323232" green="0.4579979482323232" blue="0.4579979482323232" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="UzR-SC-iGS" firstAttribute="top" secondItem="fEn-XI-da4" secondAttribute="bottom" constant="10" id="2MZ-9j-R79"/>
+                            <constraint firstItem="5Zc-dn-XoM" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" id="3gh-eo-24X"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="5Zc-dn-XoM" secondAttribute="trailing" id="AFP-db-GBf"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="UzR-SC-iGS" secondAttribute="bottom" constant="25" id="J7B-h9-8IT"/>
+                            <constraint firstItem="5Zc-dn-XoM" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="100" id="LA7-dR-tBW"/>
+                            <constraint firstItem="UzR-SC-iGS" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" id="Wz3-kv-PUZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="UzR-SC-iGS" secondAttribute="trailing" id="if3-ci-GeP"/>
+                            <constraint firstItem="fEn-XI-da4" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="zqU-2P-30p"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="53" y="375"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Image_launch_logo" width="72" height="30"/>
+    </resources>
+</document>
