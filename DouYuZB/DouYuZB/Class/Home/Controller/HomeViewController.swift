@@ -39,16 +39,22 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.whiteColor()
-        view.addSubview(pageTitleView)
+        
         setupUI()
-        // Do any additional setup after loading the view.
+
     }
 }
 //mark- 设置UI界面
 extension HomeViewController{
     private func setupUI(){
         automaticallyAdjustsScrollViewInsets = false
+        //1 设置导航栏
         setupNavigationBar()
+        //2  添加titleview
+        view.addSubview(pageTitleView)
+        //3 添加contentview
+        view.addSubview(pageContentView)
+        pageContentView.backgroundColor = UIColor.redColor()
     }
     
     private func setupNavigationBar(){
