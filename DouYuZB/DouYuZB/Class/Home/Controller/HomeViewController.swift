@@ -12,14 +12,14 @@ private let kTitleViewH : CGFloat = 40
 
 class HomeViewController: UIViewController {
     //懒加载属性
-    private lazy var pageTitleView : PageTitleView = {
+    fileprivate lazy var pageTitleView : PageTitleView = {
         let titleFrame = CGRect(x: 0, y: kStatusBarH + kNavigationBarH, width:kScreenW, height: kTitleViewH)
         let titlesArray = ["推荐", "游戏", "娱乐", "去玩"]
         let titleView = PageTitleView(frame: titleFrame, titles: titlesArray)
         return titleView
     }()
     
-    private lazy var pageContentView : PageContentView = {
+    fileprivate lazy var pageContentView : PageContentView = {
         //确定内容的frame
         let contentH = kScreenH - kNavigationBarH - kStatusBarH - kTitleViewH
         let contentFrame = CGRect(x: 0, y:kNavigationBarH + kStatusBarH + kTitleViewH, width: kScreenW, height: contentH)
@@ -38,7 +38,7 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.whiteColor()
+        view.backgroundColor = UIColor.white
         
         setupUI()
 
@@ -46,7 +46,7 @@ class HomeViewController: UIViewController {
 }
 //mark- 设置UI界面
 extension HomeViewController{
-    private func setupUI(){
+    fileprivate func setupUI(){
         automaticallyAdjustsScrollViewInsets = false
         //1 设置导航栏
         setupNavigationBar()
@@ -54,21 +54,21 @@ extension HomeViewController{
         view.addSubview(pageTitleView)
         //3 添加contentview
         view.addSubview(pageContentView)
-        pageContentView.backgroundColor = UIColor.redColor()
+        pageContentView.backgroundColor = UIColor.red
     }
     
-    private func setupNavigationBar(){
+    fileprivate func setupNavigationBar(){
         
         //添加左侧item
         let customBtn = UIButton()
-        customBtn.setImage(UIImage(named: "Image_launch_logo"), forState: .Normal)
+        customBtn.setImage(UIImage(named: "Image_launch_logo"), for: UIControlState())
         customBtn.sizeToFit()
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: customBtn)
         //添加右侧item
         
-        let searchItem = UIBarButtonItem .cretaItem("searchBtnIcon", hightName: "searchBtnIconHL", size: CGSize(width: 35, height: 35))
-        let scanItem = UIBarButtonItem .cretaItem("scanIcon", hightName: "scanIconHL", size: CGSize(width: 35, height: 35))
-        let historyItem = UIBarButtonItem .cretaItem("viewHistoryIcon", hightName: "viewHistoryIconHL", size: CGSize(width: 35, height: 35))
+        let searchItem = UIBarButtonItem .cretaItem(imageName: "searchBtnIcon", hightName: "searchBtnIconHL", size: CGSize(width: 35, height: 35))
+        let scanItem = UIBarButtonItem .cretaItem(imageName: "scanIcon", hightName: "scanIconHL", size: CGSize(width: 35, height: 35))
+        let historyItem = UIBarButtonItem .cretaItem(imageName: "viewHistoryIcon", hightName: "viewHistoryIconHL", size: CGSize(width: 35, height: 35))
         navigationItem.rightBarButtonItems = [searchItem,scanItem, historyItem];
         
     }

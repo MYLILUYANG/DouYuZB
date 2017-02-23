@@ -11,10 +11,13 @@ import UIKit
 extension UIBarButtonItem{
     
     class func cretaItem (imageName: String, hightName: String, size: CGSize ) ->UIBarButtonItem{
-        let item = UIButton()
-        item.setImage(UIImage(imageLiteral: imageName), forState: .Normal)
-        item.setImage(UIImage(imageLiteral: hightName), forState: .Highlighted)
-        item.frame = CGRect(origin: CGPointZero, size: size)
+        let  item : UIButton = UIButton()
+        let frame = CGRect(x: 0, y: 0, width: size.width, height: size.height);
+        item.frame = frame;
+        item.setImage(UIImage(named : imageName), for: .normal)
+        item.setImage(UIImage(named : hightName ), for: .highlighted)
+
+        
         let searchItem = UIBarButtonItem(customView: item)
         return  searchItem
     }

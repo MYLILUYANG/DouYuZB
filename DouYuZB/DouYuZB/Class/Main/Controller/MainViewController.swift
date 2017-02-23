@@ -20,7 +20,7 @@ class MainViewController: UITabBarController {
         addChilds("Mine");
     }
 
-    private func addChilds(storyBoardName : String){
+    fileprivate func addChilds(_ storyBoardName : String){
         
         let controller = UINavigationController();
         

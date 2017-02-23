@@ -12,25 +12,25 @@ private let contentCellId = "cellContentId"
 
 class PageContentView: UIView {
 //定义属性
-    private var childVcs :[UIViewController]
-    private var parentViewController : UIViewController
+    fileprivate var childVcs :[UIViewController]
+    fileprivate weak var parentViewController : UIViewController?
     //懒加载属性
-    private lazy var collectionview : UICollectionView = {
+    fileprivate lazy var collectionview : UICollectionView = {
        
         //创建layoutflow
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = self.bounds.size
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
-        layout.scrollDirection = .Horizontal
+        layout.scrollDirection = .horizontal
         
-        let collectionview = UICollectionView(frame: CGRectZero, collectionViewLayout: layout)
+        let collectionview = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
 
         collectionview.showsHorizontalScrollIndicator = false
         collectionview.showsVerticalScrollIndicator = false
         collectionview.bounces = false
-        collectionview.pagingEnabled = true
-        collectionview .registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: contentCellId)
+        collectionview.isPagingEnabled = true
+        collectionview .register(UICollectionViewCell.self, forCellWithReuseIdentifier: contentCellId)
         return collectionview
     }()
     //自定义构造函数
@@ -49,16 +49,15 @@ class PageContentView: UIView {
 }
 //设置UI界面  - MARk
 extension PageContentView{
-    private func setupUI(){
+    fileprivate func setupUI(){
         //1
         for childVc in childVcs{
-            parentViewController.addChildViewController(childVc)
+            parentViewController?.addChildViewController(childVc)
             
         }
         //2 添加UICollectionView 用于在cell中存放控制器的cell
         addSubview(collectionview)
         collectionview.frame = self.bounds
-        collectionview.backgroundColor = UIColor.yellowColor()
         collectionview.delegate = self
         collectionview.dataSource = self//在视频教学中不需要遵循协议
         
@@ -67,13 +66,13 @@ extension PageContentView{
 //MARK - 遵守collectionview 协议
 
 extension PageContentView : UICollectionViewDataSource{
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return childVcs.count
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         //创建cell
-        let cell = collectionview.dequeueReusableCellWithReuseIdentifier(contentCellId, forIndexPath: indexPath)
+        let cell = collectionview.dequeueReusableCell(withReuseIdentifier: contentCellId, for: indexPath)
         
         //给cell设置内容
         
@@ -91,7 +90,7 @@ extension PageContentView : UICollectionViewDataSource{
 }
 
 extension PageContentView : UICollectionViewDelegate {
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(indexPath.row)
     }
 }
